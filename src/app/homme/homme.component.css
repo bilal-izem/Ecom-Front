@@ -1,0 +1,7 @@
+.relative {
+  overflow: hidden;
+}
+
+.flex {
+  transition: transform 1s ease-in-out;
+}

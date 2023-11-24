@@ -1,0 +1,69 @@
+<div class="relative">
+  <div class="flex">
+    <div class="w-screen h-64 bg-gray-300 flex items-center justify-center">
+      <img src="assets/images/homme/h1/h3.jpg" alt="">
+    </div>
+    <div class="w-screen h-64 bg-gray-400 flex items-center justify-center">
+      <img src="assets/images/homme/h2/h3.jpg" alt="">
+    </div>
+    <div class="w-screen h-64 bg-gray-500 flex items-center justify-center">
+      <img src="assets/images/homme/h3/h3.jpg" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="flex justify-center items-center p-5" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <p class="text-6xl font-light">COLLECTION HOMME</p>
+</div>
+
+
+<div class="px-32 flex flex-col gap-10 justify-center items-center">
+
+
+    <div class="flex justify-between items-center w-full pt-5">
+        <p class="tracking-widest font-extralight">{{hommeItems.length}} PRODUITS</p>
+        <div class="flex gap-10 justify-center items-center">
+          <button class="flex gap-2 items-center justify-center">
+            <p>TRI PAR DEFAUT</p>
+            <i class="fa-solid fa-caret-down text-gray-600 hover:text-orange-500 transition duration-300"></i>
+          </button>
+          <button class="flex gap-2 items-center justify-center">
+            <p>FILTRES</p>
+            <i class="fa-solid fa-sliders text-gray-600 hover:text-orange-500 transition duration-300"></i>
+          </button>
+        </div>
+    </div>
+
+
+    <div class="grid grid-cols-4 gap-10 mb-10">
+
+      <div class="flex flex-col gap-2 " *ngFor="let item of hommeItems">
+        <div class="relative inline-block group">
+          <img src="assets/images/homme/{{item.image}}.jpg" class="shadow-md">
+          <div class="overlay absolute inset-0 bg-slate-800 opacity-0 group-hover:opacity-30 transition-opacity duration-300 shadow-md"></div>
+          <button class="p-2 flex justify-center items-center gap-1 absolute bottom-0 transform translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-300 hover:text-white">
+            <i class="fa-solid fa-cart-plus"></i>
+            <p class="underline">ADD TO CART</p>
+          </button>
+          <button class="p-2 absolute top-10 right-10 transform translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-400 hover:text-black">
+            <i class="fa-regular fa-heart p-2 bg-white rounded-full shadow-md"></i>
+          </button>
+        </div>
+        <div class="flex flex-col justify-center items-center gap-1">
+          <p class="tracking-widest font-light" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">100% Coutons</p>
+          <button><p>{{item.title}}</p></button>
+          <div class="flex justify-center items-center gap-2 text-xs">
+            <button><i class="fa-solid fa-circle  text-gray-400"></i></button>
+            <button><i class="fa-solid fa-circle text-black"></i></button>
+            <button><i class="fa-solid fa-circle text-blue-500"></i></button>
+            <button><i class="fa-solid fa-circle text-yellow-500"></i></button>
+          </div>
+          <p class="font-extrabold">$ {{item.price}}</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+</div>

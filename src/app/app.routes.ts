@@ -7,7 +7,8 @@ import { FemmeComponent } from './femme/femme.component';
 
 
 export const routes: Routes = [
-  {path: '',pathMatch: 'full', loadComponent: () => import('./acceuil/acceuil.component').then(mod => mod.AcceuilComponent)},
+  {path: 'acceuil',pathMatch: 'full', loadComponent: () => import('./acceuil/acceuil.component').then(mod => mod.AcceuilComponent)},
+  { path: '',   redirectTo: '/acceuil', pathMatch: 'full' },
   {path: 'homme', loadComponent: () => import('./homme/homme.component').then(mod => mod.HommeComponent)},
   {path: 'femme', loadComponent: () => import('./femme/femme.component').then(mod => mod.FemmeComponent)},
   {path: 'enfant', loadComponent: () => import('./enfant/enfant.component').then(mod => mod.EnfantComponent)},

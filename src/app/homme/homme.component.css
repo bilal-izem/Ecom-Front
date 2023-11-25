@@ -5,3 +5,17 @@
 .flex {
   transition: transform 1s ease-in-out;
 }
+
+.inverted-5 {
+  background:
+    conic-gradient(from -135deg, #fff 0 90deg, #f97316 0),
+    conic-gradient(from -135deg, #f97316 0 90deg, #ffff 0);
+  -webkit-background-clip: text,padding-box;
+  background-clip: text,padding-box;
+  background-size: 200% 100%;
+  background-position: right;
+  transition: 0.3s;
+}
+.inverted-5:hover {
+  background-position: center;
+ }

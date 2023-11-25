@@ -32,7 +32,7 @@ export class AppComponent {
   ]
   currentIndex = 0;
 
-  OnInit() {
+  ngOnInit() {
     interval(2000).subscribe(() => {
     this.currentIndex = (this.currentIndex + 1) % this.paragraphs.length;
   });}

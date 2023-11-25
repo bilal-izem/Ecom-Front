@@ -1,0 +1,95 @@
+
+#a {
+  background-image: linear-gradient(
+    to right,
+    #f97316,
+    #f97316 50%,
+    #000 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+#a:before{
+  content: '';
+  background: #f97316;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+#a:hover {
+  background-position: 0;
+  transition-duration: 0.5s;
+}
+
+#a:hover::before {
+  width: 100%;
+  transition-duration: 0.5s;
+}
+
+#a.router-link-active {
+  background-position: 0;
+  transition-duration: 0.5s;
+}
+
+#a.router-link-active::before {
+  width: 100%;
+  transition-duration: 0.5s;
+}
+
+
+.gallery {
+  --g: 8px;
+
+  display: grid;
+  clip-path: inset(1px);
+}
+.gallery > img {
+  --_p: calc(-1*var(--g));
+  grid-area: 1/1;
+  width: 350px;
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: .4s .1s;
+}
+.gallery > img:first-child {
+  clip-path: polygon(0 0, calc(100% + var(--_p)) 0 , 0 calc(100% + var(--_p)))
+}
+.gallery > img:last-child {
+  clip-path: polygon(100% 100%, 100% calc(0% - var(--_p)), calc(0% - var(--_p)) 100%)
+}
+.gallery:hover > img:last-child,
+.gallery:hover > img:first-child:hover{
+  --_p: calc(50% - var(--g));
+}
+.gallery:hover > img:first-child,
+.gallery:hover > img:first-child:hover + img{
+  --_p: calc(-50% - var(--g));
+}
+
+
+
+.inverted-5 {
+  background:
+    conic-gradient(from -135deg, #fff 0 90deg, #f97316 0),
+    conic-gradient(from -135deg, #f97316 0 90deg, #ffff 0);
+  -webkit-background-clip: text,padding-box;
+  background-clip: text,padding-box;
+  background-size: 200% 100%;
+  background-position: right;
+  transition: 0.5s;
+}
+.inverted-5:hover {
+  background-position: center;
+ }

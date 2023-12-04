@@ -20,3 +20,8 @@
 .inverted-5:hover {
   background-position: center;
  }
+
+ .liked {
+  background-color: black;
+  color: white;
+}

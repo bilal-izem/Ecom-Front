@@ -23,11 +23,7 @@
     <div class="flex justify-between items-center w-full pt-5">
         <p class="tracking-widest font-extralight">{{hommeItems.length}} PRODUITS</p>
         <div class="flex gap-10 justify-center items-center">
-          <button class="flex gap-2 items-center justify-center">
-            <p>TRI PAR DEFAUT</p>
-            <i class="fa-solid fa-caret-down text-gray-600 hover:text-orange-500 transition duration-300"></i>
-          </button>
-          <button class="flex gap-2 items-center justify-center">
+          <button class="flex gap-2 items-center justify-center" type="button" (click)="toggleModal()">
             <p>FILTRES</p>
             <i class="fa-solid fa-sliders text-gray-600 hover:text-orange-500 transition duration-300"></i>
           </button>
@@ -43,8 +39,8 @@
             <img src="assets/images/homme/h{{item.id}}/h1.jpg" class="shadow-md">
             <img src="assets/images/homme/h{{item.id}}/h2.jpg" class="shadow-md">
           </div>
-          <button class="p-2 absolute top-10 right-10 transform translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-400 hover:text-black">
-            <i class="fa-regular fa-heart p-2 bg-white rounded-full shadow-md"></i>
+          <button (click)="toggleLike(item)"  class="p-2 absolute top-10 right-10 transform translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-400 hover:text-black">
+            <i class="fa-regular fa-heart p-2  bg-white rounded-full shadow-md" [class.liked]="item.isLiked"></i>
           </button>
         </div>
         <div class="flex flex-col justify-center items-center gap-1">
@@ -70,3 +66,64 @@
 
 
 </div>
+
+
+
+<!-- a afficher pour filtrer -->
+<div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-end items-end flex">
+  <div class="relative  bg-slate-700 w-1/3 h-full left-0 top-0 bottom-0 flex flex-col justify-between items-center">
+
+        <div class="flex flex-col justify-end items-center w-full">
+          <div class="flex justify-end items-center w-full ">
+            <button class=" m-6 text-white border px-3 py-2 border-slate-400" type="button" (click)="toggleModal()"><i class="fa-solid fa-xmark text-xl"></i></button>
+          </div>
+          <div class="flex flex-col justify-center items-center w-full px-4">
+                <button class="text-white p-3 border-b border-slate-400 flex justify-between items-center w-full" (click)="toggleSizeOptions()">
+                  <p>TAILLE</p>
+                  <i class="{{x}}"></i>
+                </button>
+                <div *ngIf="showSizeOptions" class=" grid grid-flow-col p-4 gap-5">
+                  <label *ngFor="let size of sizes" class="text-white">
+                    <input type="checkbox" [checked]="selectedSizes[size]" (change)="toggleSize(size)" class="mr-2">
+                    {{ size }}
+                  </label>
+                </div>
+
+                <button class="text-white p-3 border-b border-slate-400 flex justify-between items-center w-full" (click)="toggleColorOptions()">
+                  <p>COLEUR</p>
+                  <i class="{{y}}"></i>
+                </button>
+                <div *ngIf="showColorOptions" class=" grid grid-flow-col p-4 gap-5">
+                  <label *ngFor="let color of colors" class="text-white">
+                    <input type="checkbox" [checked]="selectedColors[color]" (change)="toggleColor(color)" class="mr-2">
+                    {{ color }}
+                  </label>
+                </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="flex flex-col gap-6 p-10 w-full">
+          <button
+            type="submit"
+            class="w-full border py-3 text-lg tracking-widest text-slate-700 bg-slate-300 hover:bg-transparent hover:border-white hover:text-white transition duration-300 ease-linear"
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            VALIDER
+          </button>
+          <button
+            (click)="clearAllSizes()"
+            type="submit"
+            class="underline py-3 text-lg tracking-widest text-slate-400 hover:text-white transition duration-300 ease-linear"
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            EFFACER TOUT
+          </button>
+        </div>
+
+
+
+  </div>
+</div>
+
+<div *ngIf="showModal" class="opacity-40 fixed inset-0 z-40 bg-slate-600"></div>

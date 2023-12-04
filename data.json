@@ -1,0 +1,13 @@
+{
+  "enfantItems": [
+    {"id": "1", "title": "HOODIE Classique Enfant", "price": 100, "image": "e1", "isLiked": false},
+    {"id": "2", "title": "SWEAT-SHIRT Enfant", "price": 100, "image": "e2", "isLiked": false},
+    {"id": "3", "title": "COL ROULE Classique Enfant", "price": 100, "image": "e3", "isLiked": false},
+    {"id": "4", "title": "SWEAT-SHIRT Enfant", "price": 100, "image": "e4", "isLiked": false},
+    {"id": "5", "title": "SWEAT-SHIRT Enfant", "price": 100, "image": "e5", "isLiked": false},
+    {"id": "6", "title": "SWEAT-SHIRT Enfant", "price": 100, "image": "e6", "isLiked": false},
+    {"id": "7", "title": "SWEAT-SHIRT Enfant", "price": 100, "image": "e7", "isLiked": false},
+    {"id": "8", "title": "SWEAT-SHIRT Enfant", "price": 100, "image": "e8", "isLiked": false}
+  ]
+}
+
